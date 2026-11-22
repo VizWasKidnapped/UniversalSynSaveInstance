@@ -5263,18 +5263,10 @@ local function synsaveinstance(...)
 		elseif persisted == "failed" or persisted == "crashed" then
 			state = false
 		else
-			local text
-			if StatusText then
-				text = StatusText.Text
-				StatusText.Text = "GHP test. Crash = rerun script few times"
-			end
 			ensureTextRendered()
 
 			GHP[valueType] = "crashed" -- * treated as crashed until the upcoming read reports back; if this state ever reaches the save file it means the game died mid-read (or was closed before it finished)
 			saveExecState()
-			if StatusText then
-				StatusText.Text = text
-			end
 			state = true
 		end
 
@@ -6736,7 +6728,7 @@ local function synsaveinstance(...)
 		StatusText.Font = Enum.Font.Code
 		StatusText.AnchorPoint = Vector2.new(1)
 		StatusText.Position = UDim2.new(1)
-		StatusText.Size = UDim2.new(0.3, 0, 0, 20)
+		StatusText.Size = UDim2.new(1, 0, 0, 20)
 
 		StatusText.TextColor3 = Color3.new(1, 1, 1)
 		StatusText.TextScaled = true
@@ -7019,7 +7011,7 @@ local function synsaveinstance(...)
 
 					if StatusText and not statusShown then
 						statusShown = true
-						StatusText.Text = "GHP test. Crash = rerun script few times"
+						StatusText.Text = "Saving..."
 						ensureTextRendered()
 					end
 					local ok, passed = pcall(check.test)
