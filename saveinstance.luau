@@ -7311,7 +7311,7 @@ local function synsaveinstance(...)
 	if StatusText then
 		task.spawn(function()
 			if ok then
-				StatusText.Text = string.format("Saved! Time %.3f seconds; Size %s", elapse_t, get_size_format())
+				StatusText.Text = string.format("Saved to %s in %.3f seconds (size %s)", CopyToClipboard and "clipboard" or Callback and "callback" or placename, elapse_t, get_size_format())
 				StatusText.TextColor3 = Color3.new(0, 1)
 				task.wait(Log10 * 2 + ExtraTime)
 			else
@@ -7319,7 +7319,7 @@ local function synsaveinstance(...)
 					task.cancel(LoadingThread)
 					LoadingThread = nil
 				end
-				StatusText.Text = "Failed! Check F9 console for more info"
+				StatusText.Text = "Failed to save, check console for more info"
 				StatusText.TextColor3 = Color3.new(1)
 				task.wait(Log10 + ExtraTime)
 			end
