@@ -64,7 +64,7 @@ do
 	local filename = "StreamBuffer"
 
 	StreamBuffer = loadstring(
-		game:HttpGet("https://raw.githubusercontent.com/TrapstarKS/UniversalSynSaveInstance/main/utils/" .. filename .. ".luau", true),
+		game:HttpGet("https://raw.githubusercontent.com/VizWasKidnapped/UniversalSynSaveInstance/main/utils/" .. filename .. ".luau", true),
 		filename
 	)()
 end
@@ -75,7 +75,7 @@ do
 
 	local finder
 	finder, global_container = loadstring(
-		game:HttpGet("https://raw.githubusercontent.com/TrapstarKS/UniversalSynSaveInstance/main/utils/" .. filename .. ".luau", true),
+		game:HttpGet("https://raw.githubusercontent.com/VizWasKidnapped/UniversalSynSaveInstance/main/utils/" .. filename .. ".luau", true),
 		filename
 	)()
 
@@ -3779,7 +3779,7 @@ end
 	Save the current place, one [Instance], or a group of [Instance]s. Example:
 	```lua
 	local Params = {
-		RepoURL = "https://raw.githubusercontent.com/TrapstarKS/UniversalSynSaveInstance/main/",
+		RepoURL = "https://raw.githubusercontent.com/VizWasKidnapped/UniversalSynSaveInstance/main/",
 		SSI = "saveinstance",
 	}
 
