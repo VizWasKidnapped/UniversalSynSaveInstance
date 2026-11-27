@@ -1509,6 +1509,11 @@ end
 
 local XML_Encoders
 XML_Encoders = {
+	AssetContentMap = function(raw)
+		assert(type(raw) == "string" and raw:match("^%s*%[") and raw:match("%]%s*$"),
+			"AssetContentMap getter must return a JSON array")
+		return (raw:gsub("[&<>]", { ["&"] = "&amp;", ["<"] = "&lt;", [">"] = "&gt;" }))
+	end,
 	_cdata = function(raw) -- ? Normally Roblox doesn't use CDATA unless the string has newline characters (\n); We rather CDATA everything for sake of speed
 		return "<![CDATA[" .. raw .. "]]>"
 	end,
